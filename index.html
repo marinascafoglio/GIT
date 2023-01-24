@@ -4,31 +4,102 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>How to Integrate Gulp and Browser Sync for Auto Reloading HTML Pages</title>
+    <style>
+        html{
+            padding: 20px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .instructions-wrapper{
+            background-color: rgb(232, 232, 232);
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 20fr;
+        }
+        .number-wrapper{
+            color: rgb(108, 108, 108);
+        }
+        .code-wrapper{
+            background-color: rgb(248, 248, 234);
+            padding: 20px;
+            margin: 0px 30px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
 </head>
 <body>
-    <h1>HI GULP!</h1>
-        <p>Primero: para instalar gulp hay que tener previamente instalado node.js, se descarga la version desde la web oficial, nada más que hacer. muy fácil este paso.</p> <br>
-        <p>Segundo: en el terminal. Una vez estamos dentro del directorio de nuestro proyecto, por ejemplo: <br> cd ~/Documents/BOTTEGA/02_FULLSTACK/04_GIT <br> tecleamos: sudo npm install -g gulp <br> Es necesario teclear la palabra sudo en MAC, para poder tener los permisos de administrador, sino no se instala correctamente. Nos pide la contraseña, tecleamos (aunque no aparece escrita) y enter. Ya está instalado. </p>
-        <p>tercero: Si ahora vamos a nuestro visual studio, vemos que se han creado algunos archivos en la carpeta de nuestro proyecto. <br> Para poder continuar sin todas las actualizaciones de git, debemos crear un archivo en uestro directorio llamado .gitignore y dentro escribir "node_modules" y listo.</p>
-        <p>cuarto: ya podemos crear nuestro archivo con la funcion de gulp. se llamara gulpfile.js y dentro escribiremos el siguiente codigo: <br> 
-            
-            var gulp = require('gulp');
-            var browserSync = require('browser-sync').create();
-            var reload = browserSync.reload;
-            
-            gulp.task('serve', function() {
-              browserSync.init({
-                server: {
-                  baseDir: "./"
-                }
-              });
-            
-              gulp.watch("*.html").on("change", reload);
-            });
-        </p>
-        <p>sexto: para ejecutar nuestro procesador de tareas (gulp) en el terminal, escribimos "gulp serve" y se abre la pagina en el navegador, los cambios que realicemos en nuestro proyecto los veremos en directo. Para poder seguir tecleando el terminal una vez que ejectuamos el navegador con gulp debemos teclear los comandos control+c de esta forma ya tenemos operativo el terminal.</p>
-        <p>ULTIMO: para actulizar nuestro repositorio GIT, en el terminal escribimos "git add ." luego "git commit -m "Installed gulp for task running", ya tenemos los archivos listos para ser enviados al repositorio, ahora solo falta escribir "git push" y hecho!</p>
-
+    <div class="title">
+        <h1>How to Integrate Gulp and Browser Sync for Auto Reloading HTML Pages</h1>
+    </div>
+    <div class="instructions-wrapper">
+        <div class="number-wrapper">
+            <h2>1</h2>
+        </div>
+        <div class="instruction-wrapper">
+            <p>Para instalar Gulp hay que tener previamente instalado node.js, se descarga la version desde la web oficial y nada más que hacer en este primer paso.</p>
+        </div>
+    </div>
+    <div class="instructions-wrapper">
+        <div class="number-wrapper">
+            <h2>2</h2>
+        </div>
+        <div class="instruction-wrapper">
+            <p>En el terminal. Una vez estamos dentro del directorio de nuestro proyecto, por ejemplo: <br><br> cd ~/Documents/BOTTEGA/02_FULLSTACK/04_GIT <br><br> tecleamos "sudo npm install -g gulp". Es necesario teclear la palabra sudo en Mac, para poder tener los permisos de administrador, sino no se instala correctamente. Nos pide la contraseña, tecleamos (aunque no aparece escrita) y pulsamos enter. Ya está instalado. </p>
+        </div>
+    </div>
+    <div class="instructions-wrapper">
+        <div class="number-wrapper">
+            <h2>3</h2>
+        </div>
+        <div class="instruction-wrapper">
+            <p>Si ahora vamos a nuestro VSCode, vemos que se han creado algunos archivos en la carpeta de nuestro proyecto. <br> Para poder continuar sin todas las actualizaciones de git (miles), debemos crear un archivo dentro de la carpeta del proyecto llamado .gitignore y dentro escribir "node_modules" y listo.</p>
+        </div>
+    </div>
+    <div class="instructions-wrapper">
+        <div class="number-wrapper">
+            <h2>4</h2>
+        </div>
+        <div class="instruction-wrapper">
+            <p>Ya podemos crear nuestro archivo con la funcion de gulp. se llamara gulpfile.js y dentro escribiremos el siguiente codigo:</p>
+            <div class="code-wrapper">
+                <p>var gulp = require('gulp'); <br>
+                    var browserSync = require('browser-sync').create(); <br>
+                    var reload = browserSync.reload; <br><br>
+                    gulp.task('serve', function() { <br>
+                        browserSync.init({ <br>
+                            server: { <br>
+                                baseDir: "./" <br>
+                            } <br>
+                        }); <br><br>
+                        gulp.watch("*.html").on("change", reload); <br>
+                    });
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="instructions-wrapper">
+        <div class="number-wrapper">
+            <h2>5</h2>
+        </div>
+        <div class="instruction-wrapper">
+            <p>Para ejecutar nuestro procesador de tareas (Gulp) en el terminal, escribimos "gulp serve" y se abre la pagina en el navegador, los cambios que realicemos en nuestro proyecto los veremos en directo. Para poder seguir tecleando en el terminal una vez que ejectuamos "gulp serve" debemos teclear los comandos control+c de esta forma ya tenemos operativo el terminal.</p>
+        </div>
+    </div>
+    <div class="instructions-wrapper">
+        <div class="number-wrapper">
+            <h2>6</h2>
+        </div>
+        <div class="instruction-wrapper">
+            <p>Para actulizar nuestro repositorio GIT, en el terminal escribimos "git add ." luego "git commit -m "Installed gulp for task running", ya tenemos los archivos listos para ser enviados al repositorio, ahora solo falta escribir "git push" y hecho!</p>
+        </div>
+    </div>
+    <div class="instructions-wrapper">
+        <div class="number-wrapper">
+            <h2>*</h2>
+        </div>
+        <div class="instruction-wrapper">
+            <p>Cada vez que salgamos del terminal o de nuestro proyecto, o cerremos el navegador, la conexión con el navegador se pierde por lo que tenemos que repetir el comando "gulp serve". O si hemos cerrado el terminal, debemos primero llegar al directorio y luego ejecutar Gulp.</p>
+        </div>
+    </div>
 </body>
 </html>
