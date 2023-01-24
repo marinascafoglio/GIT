@@ -7,7 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>hi flexbox</h1>
-    <h1>de putisima madre!<h1>
+    <h1>HI GULP!</h1>
+        <p>Primero: para instalar gulp hay que tener previamente instalado node.js, se descarga la version desde la web oficial, nada más que hacer. muy fácil este paso.</p> <br>
+        <p>Segundo: en el terminal. Una vez estamos dentro del directorio de nuestro proyecto, por ejemplo: <br> cd ~/Documents/BOTTEGA/02_FULLSTACK/04_GIT <br> tecleamos: sudo npm install -g gulp <br> Es necesario teclear la palabra sudo en MAC, para poder tener los permisos de administrador, sino no se instala correctamente. Nos pide la contraseña, tecleamos (aunque no aparece escrita) y enter. Ya está instalado. </p>
+        <p>tercero: Si ahora vamos a nuestro visual studio, vemos que se han creado algunos archivos en la carpeta de nuestro proyecto. <br> Para poder continuar sin todas las actualizaciones de git, debemos crear un archivo en uestro directorio llamado .gitignore y dentro escribir "node_modules" y listo.</p>
+        <p>cuarto: ya podemos crear nuestro archivo con la funcion de gulp. se llamara gulpfile.js y dentro escribiremos el siguiente codigo: <br> 
+            
+            var gulp = require('gulp');
+            var browserSync = require('browser-sync').create();
+            var reload = browserSync.reload;
+            
+            gulp.task('serve', function() {
+              browserSync.init({
+                server: {
+                  baseDir: "./"
+                }
+              });
+            
+              gulp.watch("*.html").on("change", reload);
+            });
+        </p>
+        <p>sexto: para ejecutar nuestro procesador de tareas (gulp) en el terminal, escribimos "gulp serve" y se abre la pagina en el navegador, los cambios que realicemos en nuestro proyecto los veremos en directo. Para poder seguir tecleando el terminal una vez que ejectuamos el navegador con gulp debemos teclear los comandos control+c de esta forma ya tenemos operativo el terminal.</p>
+        <p>ULTIMO: para actulizar nuestro repositorio GIT, en el terminal escribimos "git add ." luego "git commit -m "Installed gulp for task running", ya tenemos los archivos listos para ser enviados al repositorio, ahora solo falta escribir "git push" y hecho!</p>
+
 </body>
 </html>
